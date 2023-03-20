@@ -1,11 +1,16 @@
 import React from "react";
+import { ICountry } from "../types";
 import { CountryItem } from "./CountryItem";
 
-export const CountryList = () => {
+interface ICountryList {
+  countries: ICountry[];
+}
+
+export const CountryList = ({ countries }: ICountryList) => {
   return (
     <ul className="list-group">
-      {[1, 2, 3].map((item) => {
-        return <CountryItem />;
+      {countries.map((country) => {
+        return <CountryItem country={country} />;
       })}
     </ul>
   );
